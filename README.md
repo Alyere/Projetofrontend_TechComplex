@@ -1,1 +1,2 @@
 # Projetofrontend_TechComplex
+Começar a programar pode parecer um emaranhado, e eu sei bem disso! Este projeto é um pedaço da minha jornada, onde demonstro como encaro a complexidade da tecnologia. Compartilho as minhas próprias estratégias: desde o uso de fontes confiáveis e aulas didáticas até a importância de "sujar as mãos" no código. Meu objetivo é mostrar que, com o método certo, o que é complexo hoje, se torna claro amanhã.
