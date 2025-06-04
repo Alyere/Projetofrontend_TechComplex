@@ -1,0 +1,644 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+:root {
+    /* Cores de Fundo e Texto */
+    --background-dark: #0d1117;
+    --background-medium: #161b22;
+    --text-light: #c9d1d9;
+    --text-medium: #8b949e;
+    
+    /* * Cores de Destaque PRINCIPAIS DO TEMA (ROSA)
+     * Mantenha os valores RGB (sem o #) sincronizados com os Hexadecimais.
+     */
+    --highlight-primary: #FF69B4; /* Rosa Vibrante */
+    --highlight-primary-hover: #b98c94; /* Rosa Claro para Hover */
+    
+    /* VERSÕES RGB ATUALIZADAS para uso com transparência (rgba) */
+    --highlight-primary-rgb: 255, 105, 180; 
+    --highlight-primary-hover-rgb: 255, 192, 203; 
+
+    /* Cores de Destaque SECUNDÁRIAS (AZUL) */
+    --highlight-blue: #053a76; 
+    --highlight-blue-hover: #79c0ff;
+    
+    /* RGB para o Azul (se precisar para sombras ou bordas com opacidade) */
+    --highlight-blue-rgb: 67, 139, 222;
+
+    /* Tamanhos de Fonte */
+    --font-base-size: 1rem;
+    --font-large-size: 1.5rem;
+    --font-extra-large-size: 2.8rem;
+}
+
+body {
+  background: var(--background-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(90deg, var(--background-medium) 0%, var(--highlight-primary) 50%, var(--background-medium) 100%);
+  background-size: 200% auto;
+  animation: light-border 5s linear infinite;
+  border-radius: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(var(--highlight-primary-rgb), 0.2); /* Sombra rosa */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+@keyframes light-border {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.logo {
+  color: var(--highlight-primary);
+  font-size: var(--font-large-size);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--text-medium);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  font-size: var(--font-base-size);
+}
+
+.nav-links a:hover {
+  color: var(--highlight-primary); 
+}
+
+.nav-links a.active {
+  color: var(--highlight-primary); 
+  font-weight: bold;
+  border-bottom: 2px solid var(--highlight-primary);
+  padding-bottom: 2px;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: var(--highlight-primary); 
+  margin: 4px 0;
+  transition: background 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: var(--background-medium);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(var(--highlight-primary-rgb), 0.3); /* Sombra rosa */
+    z-index: 1000;
+    min-width: 150px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+  
+  .menu-toggle.active span {
+    background: var(--highlight-primary-hover); 
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.6rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: var(--highlight-primary); 
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.9rem;
+    color: var(--text-light); 
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+ul li {
+    margin-bottom: 0.7rem;
+}
+
+footer {
+  background: var(--background-medium);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  border-top: 1px solid rgba(var(--highlight-primary-rgb), 0.05); /* Borda rosa */
+}
+
+.animated-icon {
+    display: inline-block;
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
+
+.animated-icon:hover {
+    animation: bounce 0.6s cubic-bezier(0.68, 0.55, 0.27, 1.55) both;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+/* --- Estilos para a Seção de Complexidade (em Português) --- */
+
+.secao-complexidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.secao-complexidade h1 {
+    color: var(--highlight-primary); 
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.secao-complexidade p {
+    margin-bottom: 1.5rem;
+    font-size: var(--font-base-size);
+}
+
+.categoria-complexidade {
+    background-color: var(--background-medium);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 7px 15px rgba(var(--highlight-primary-rgb), 0.25); /* Sombra rosa */
+    width: 100%;
+    border: 1px solid rgba(var(--highlight-primary-rgb), 0.2); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-complexidade:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(var(--highlight-primary-rgb), 0.3); /* Sombra rosa no hover */
+}
+
+.categoria-complexidade h3 {
+    color: var(--highlight-primary); 
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    border-bottom: 2px solid rgba(var(--highlight-primary-rgb), 0.5); /* Borda rosa */
+    padding-bottom: 0.5rem;
+}
+
+.categoria-complexidade ul {
+    list-style: disc;
+    margin-left: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.categoria-complexidade ul li {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .secao-complexidade {
+        padding: 1.5rem 0.8rem;
+    }
+
+    .secao-complexidade h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .categoria-complexidade {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .categoria-complexidade h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* --- Estilos para a Seção de Dicas (em Português) --- */
+
+.secao-dicas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.secao-dicas h1 {
+    color: var(--highlight-primary); 
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.secao-dicas p {
+    margin-bottom: 1.5rem;
+    font-size: var(--font-base-size);
+}
+
+.categoria-dicas {
+    background-color: var(--background-medium);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    border: 1px solid rgba(var(--highlight-primary-rgb), 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-dicas:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(var(--highlight-primary-rgb), 0.3);
+}
+
+.categoria-dicas h3 {
+    color: var(--highlight-primary);
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    border-bottom: 2px solid rgba(var(--highlight-primary-rgb), 0.5);
+    padding-bottom: 0.5rem;
+}
+
+.categoria-dicas ul {
+    list-style: disc;
+    margin-left: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.categoria-dicas ul li {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.conclusao-categoria {
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 1.5rem;
+    font-weight: bold;
+}
+
+.texto-final {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-medium);
+}
+
+/* Responsividade para a seção de dicas (ajuste conforme necessário) */
+@media (max-width: 768px) {
+    .secao-dicas {
+        padding: 1.5rem 0.8rem;
+    }
+
+    .secao-dicas h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .categoria-dicas {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .categoria-dicas h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* --- Estilos para a Seção "Sobre Mim" e Barras de Progresso --- */
+
+.profile-container {
+    display: flex;
+    flex-direction: column; /* SEMPRE um abaixo do outro (cards Perfil e Habilidades) */
+    justify-content: center; /* Centraliza verticalmente o grupo de cards */
+    align-items: center; /* Centraliza horizontalmente o grupo de cards */
+    padding: 2rem 1rem;
+    max-width: 1000px; /* Largura máxima para todo o conteúdo da página Sobre */
+    margin: 2rem auto; /* Centraliza a seção na página */
+    gap: 3rem; /* Espaçamento entre o profile-card e o skills-progress-container */
+}
+
+.profile-card {
+    background: var(--background-medium);
+    color: var(--text-light);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 700px; /* Largura máxima do card de perfil */
+    width: 100%; /* Para garantir que ocupe a largura disponível dentro do container */
+    display: flex;
+    flex-direction: row; /* PADRÃO: Foto e info LADO A LADO DENTRO do card de perfil */
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    position: relative;
+    box-shadow: 0 0 15px rgba(var(--highlight-primary-rgb), 0.2); 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid rgba(var(--highlight-primary-rgb), 0.1); 
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(var(--highlight-primary-rgb), 0.3); 
+}
+
+/* Ajuste para o layout interno do profile-card em telas pequenas */
+@media (max-width: 600px) {
+    .profile-card {
+        flex-direction: column; /* Em celulares, foto e info um abaixo do outro (dentro do card) */
+        text-align: center;
+        padding: 1.5rem;
+    }
+    .profile-info {
+        text-align: center;
+    }
+    /* Centralizar o texto da bio quando a direção for coluna */
+    .profile-bio {
+        text-align: center; 
+        max-width: 100%; /* Ajusta a largura máxima para preencher em coluna */
+    }
+    .profile-links {
+        justify-content: center; /* Centraliza os links quando a direção é coluna */
+    }
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid var(--highlight-primary); 
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 7px rgba(var(--highlight-primary-rgb), 0.2); 
+}
+
+.profile-info {
+    flex-grow: 1; /* Permite que o bloco de informações ocupe o espaço restante */
+    text-align: left; /* Padrão para desktop: texto alinhado à esquerda da foto */
+}
+
+.profile-name {
+    font-size: var(--font-extra-large-size);
+    margin-bottom: 0.5rem;
+    color: var(--highlight-primary); 
+}
+
+.profile-tagline {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.profile-bio {
+    font-size: var(--font-base-size);
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.profile-links {
+    margin-top: 1.5rem; 
+    display: flex;
+    justify-content: flex-start; /* Alinha links à esquerda quando a info está à esquerda */
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.profile-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 10px 18px; 
+    background-color: var(--highlight-primary); 
+    color: var(--background-dark); 
+    border-radius: 8px; 
+    text-decoration: none;
+    font-size: 1.1rem; 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profile-links a:hover {
+    background-color: var(--highlight-primary-hover); 
+    transform: translateY(-3px); 
+}
+
+.profile-links a i {
+    font-size: 2.2rem; 
+    line-height: 1; 
+    margin-right: 8px; 
+}
+
+.profile-links a:hover i {
+    transform: scale(1.1); 
+}
+
+/* Habilidades e Barras de Progresso */
+.skills-progress-container {
+    background: var(--background-medium);
+    border-radius: 10px;
+    padding: 2.5rem;
+    max-width: 700px; 
+    width: 100%;
+    box-shadow: 0 0 15px rgba(var(--highlight-primary-rgb), 0.2); 
+    margin-top: 2rem; 
+    border: 1px solid rgba(var(--highlight-primary-rgb), 0.1); 
+}
+
+.skills-progress-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--highlight-primary); 
+}
+
+.skills-progress-container .section-description {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.progress-item {
+    margin-bottom: 1.5rem;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.progress-label {
+    font-size: 1.05rem;
+}
+
+.progress-percentage {
+    font-size: 1.05rem;
+    color: var(--highlight-primary); 
+}
+
+.progress-bar-background {
+    background: #23282e; 
+    border-radius: 5px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background: linear-gradient(90deg, var(--highlight-blue), var(--highlight-primary)); 
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.8s ease-out;
+    box-shadow: 0 0 10px rgba(var(--highlight-primary-rgb), 0.7); 
+}
+
+/* --- Media Queries (Responsividade) para a Página Sobre Mim --- */
+/* (Manter o .profile-container sempre flex-direction: column) */
+@media (min-width: 769px) { 
+    /* .profile-container permanece flex-direction: column conforme solicitado */
+
+    /* Aqui garantimos que o profile-card continue horizontal em telas maiores */
+    .profile-card {
+        flex-direction: row; /* Garante que foto e info fiquem lado a lado */
+        text-align: left; /* Alinha o texto à esquerda quando horizontal */
+    }
+
+    .profile-info {
+        text-align: left; /* Garante o alinhamento do texto à esquerda */
+    }
+
+    .profile-name {
+        font-size: 3.2rem; 
+    }
+
+    .profile-tagline {
+        font-size: 1.3rem;
+    }
+
+    .profile-bio {
+        font-size: 1.15rem;
+        text-align: left; /* Garante alinhamento à esquerda em desktop */
+    }
+
+    .profile-links {
+        justify-content: flex-start; /* Alinha links à esquerda em desktop */
+    }
+
+    /* Ajustes de largura para os cards quando empilhados em desktop */
+    .profile-card,
+    .skills-progress-container {
+        max-width: 700px; /* Mantém uma largura razoável para eles */
+    }
+}
+
+@media (max-width: 480px) { /* Ajustes para telas muito pequenas (celulares) */
+    .profile-card, .skills-progress-container {
+        padding: 1.5rem;
+    }
+    .profile-name {
+        font-size: 2.2rem;
+    }
+    .profile-tagline {
+        font-size: 1.1rem;
+    }
+    .profile-bio {
+        font-size: 1rem;
+    }
+    .profile-links a {
+        font-size: 1.5rem;
+    }
+    .skills-progress-container h2 {
+        font-size: 1.8rem;
+    }
+    .progress-label {
+        font-size: 0.95rem;
+    }
+    .progress-percentage {
+        font-size: 0.85rem;
+    }
+}

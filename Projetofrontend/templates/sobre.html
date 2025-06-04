@@ -1,0 +1,98 @@
+{% extends 'base.html' %} 
+{% block title %}Sobre Mim{% endblock %} 
+
+{% block content %} 
+<section class="profile-container">
+  <div class="profile-card">
+    <img src="{{ url_for('static', filename='img/fotominha.jpeg') }}" alt="Foto de perfil de Alyere Targino, estudante de Ciência da Computação." class="profile-photo">
+    
+    <div class="profile-info">
+        <h1 class="profile-name"><span id="typing-effect-name"></span></h1> 
+        <p class="profile-tagline">Alyere Targino <span id="typing-effect-tagline"></span></p>
+        
+        <p class="profile-bio">
+            Oi! Sou Alyere Targino, estudante de Ciência da Computação, e totalmente imersa no universo tech.
+        </p>
+        
+        <div class="profile-links">
+          <a href="https://github.com/seuusuario" target="_blank" rel="noopener noreferrer" aria-label="Visitar meu perfil no GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/seuusuario" target="_blank" rel="noopener noreferrer" aria-label="Conectar-se comigo no LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="mailto:seu.email@example.com" aria-label="Enviar um email para Alyere Targino">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+    </div>
+  </div>
+
+  <div class="skills-progress-container">
+    <h2>🎯 Meu Cronômetro de Aprendizagem</h2>
+    <p class="section-description">
+        Minha paixão por tecnologia me impulsiona a explorar diversas áreas. Este "cronômetro" é um olhar transparente sobre meu progresso nas principais disciplinas e habilidades que considero fundamentais. Ele reflete o quanto tenho me aprofundado em cada tópico, sempre em busca de novos conhecimentos e desafios para evoluir.
+    </p>
+
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-label">Estrutura de Dados & Algoritmos</span>
+        <span class="progress-percentage">85%</span>
+      </div>
+      <div class="progress-bar-background">
+        <div class="progress-bar-fill" style="width: 85%;"></div>
+      </div>
+    </div>
+
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-label">Programação Orientada a Objetos (POO)</span>
+        <span class="progress-percentage">90%</span>
+      </div>
+      <div class="progress-bar-background">
+        <div class="progress-bar-fill" style="width: 90%;"></div>
+      </div>
+    </div>
+    
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-label">Introdução a Programação </span>
+        <span class="progress-percentage">80%</span>
+      </div>
+      <div class="progress-bar-background">
+        <div class="progress-bar-fill" style="width: 75%;"></div>
+      </div>
+    </div>
+
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-label">Desenvolvimento Web Front-end (HTML/CSS)</span>
+        <span class="progress-percentage">80%</span>
+      </div>
+      <div class="progress-bar-background">
+        <div class="progress-bar-fill" style="width: 80%;"></div>
+      </div>
+    </div>
+    
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-label">Sistemas Operacionais & Redes</span>
+        <span class="progress-percentage">65%</span>
+      </div>
+      <div class="progress-bar-background">
+        <div class="progress-bar-fill" style="width: 65%;"></div>
+      </div>
+    </div>
+
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-label">Metodologias Ágeis (Scrum/Kanban)</span>
+        <span class="progress-percentage">70%</span>
+      </div>
+      <div class="progress-bar-background">
+        <div class="progress-bar-fill" style="width: 70%;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
